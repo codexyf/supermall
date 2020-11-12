@@ -4,7 +4,7 @@ import axios from 'axios'
 export function request(config) {
   // 定义axios对象，设置公共属性，baseURL：公共请求路径；timeout：请求超时时间（毫秒）
   const instace = axios.create({
-    baseURL: '赵老师',
+    baseURL: '找老师',
     timeout: 10000
   })
 
