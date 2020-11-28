@@ -26,9 +26,9 @@
     display: flex;
     widows: 100%;
     text-align: center;
-    font-size: 12px;
-    padding: 10px 0 20px;
-    border-bottom: 10px solid #eee;
+    font-size: 0.68rem;
+    padding: 0.42rem 0 0.84rem;
+    border-bottom: 0.42rem solid #eee;
   }
   
   .recommend-item {
@@ -36,8 +36,9 @@
   }
 
   .recommend-item img {
-    width: 70px;
-    height:70px;
-    margin-bottom: 10px;
+    width: 3.1rem;
+    height:3.1rem;
+    margin-bottom: 0.28rem;
+    border-radius: 50%;
   }
 </style>

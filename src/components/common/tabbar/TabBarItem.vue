@@ -38,6 +38,7 @@
     },
     methods: {
       itemClick() {
+        // this.$router.push(this.path).catch(err => err)
         this.$router.replace(this.path).catch(err => err)
       }
     },
@@ -47,14 +48,14 @@
   .tab-bar-item {
     flex: 1;
     text-align: center;
-    height: 49px;
-    font-size: 14px;
+    height: 2.09rem;
+    font-size: 0.64rem;
   }
   .tab-bar-item img {
-    width: 24px;
-    height: 24px;
-    margin-top: 3px;
+    width: 1.024rem;
+    height: 1.024rem;
+    margin-top: 0.126rem;
     vertical-align: middle;
-    margin-bottom: 2px;
+    margin-bottom: 0.084rem;
   }
 </style>

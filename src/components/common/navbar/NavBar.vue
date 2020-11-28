@@ -19,14 +19,15 @@
 <style scoped>
   .nav-bar {
     display: flex;
-    line-height: 44px;
-    height: 44px;
+    line-height: 1.9rem;
+    height: 1.9rem;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+    box-shadow: 0 0.04rem 0.08rem rgba(100, 100, 100, .1);
+    font-size: 0.768rem;
   }
 
   .left, .right {
-    width: 60px;
+    width: 2.56rem;
   }
 
   .center {

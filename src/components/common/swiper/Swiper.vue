@@ -1,6 +1,6 @@
 <template>
     <div id="hy-swiper">
-      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" ref="swiper">
         <slot></slot>
       </div>
       <slot name="indicator">
@@ -118,7 +118,7 @@
        */
 		  handleDom: function () {
         // 1.获取要操作的元素
-        let swiperEl = document.querySelector('.swiper');
+        let swiperEl = this.$refs.swiper;
         let slidesEls = swiperEl.getElementsByClassName('slide');
 
         // 2.保存个数
@@ -224,19 +224,19 @@
     justify-content: center;
     position: absolute;
     width: 100%;
-    bottom: 8px;
+    bottom: 0.42rem;
   }
 
   .indi-item {
     box-sizing: border-box;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
+    width: 0.34rem;
+    height: 0.34rem;
+    border-radius: 0.17rem;
     background-color: #fff;
-    line-height: 8px;
+    line-height: 0.34rem;
     text-align: center;
-    font-size: 12px;
-    margin: 0 5px;
+    font-size: 0.51rem;
+    margin: 0 0.21rem;
   }
 
   .indi-item.active {

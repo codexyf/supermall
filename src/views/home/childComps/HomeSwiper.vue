@@ -1,9 +1,10 @@
 <template>
   <div>
     <swiper>
+      <!-- 遍历展示轮播图 -->
       <swiper-item :key="index" v-for="(item, index) in banners">
         <!-- <a :href="item.link"> -->
-          <img :src="item.image" alt="">
+          <img :src="item.image" alt="" @load="imageLoad">
         <!-- </a> -->
       </swiper-item>
     </swiper>
@@ -22,10 +23,23 @@
         }
       }
     },
+    data() {
+      return {
+        isLoad: false
+      }
+    },
     components: {
       Swiper,
       SwiperItem
-    }
+    },
+    methods: {
+      imageLoad() {
+        if(!this.isLoad) {
+          this.isLoad = true
+          this.$emit('swiperImageLoad')
+        }
+      }
+    },
   }
 </script>
 <style scoped>
