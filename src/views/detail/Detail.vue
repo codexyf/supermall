@@ -26,7 +26,7 @@
       <!-- 回到顶部 -->
     </scroll>
     <!-- 底部组件 -->
-    <detail-bottom-bar @addcart="addCart"/>
+    <detail-bottom-bar @addCart="addToCart"/>
     <!-- 回到顶部 -->
     <back-top @click.native="backClick" v-show="isShowBackTop"/>
   </div>
@@ -49,6 +49,9 @@
   // import {debounce} from "common/utils/utils.js"
   import {itemListenerMixin, backTopMixin} from "common/mixin/mixin.js"
 
+  import {ADD_CART} from "store/mutation.types.js"
+  import {mapActions} from "vuex"
+
   export default {
     name: "Detail",
     components: {
@@ -61,7 +64,7 @@
       DetailParamInfo,
       DetailCommentInfo,
       GoodsList,
-      DetailBottomBar
+      DetailBottomBar,
     },
     data() {
       return {
@@ -86,7 +89,7 @@
         // 主题所在y值
         themeTopYs: [],
         // 记录下标值
-        currentIndex: 0
+        currentIndex: 0,
       }
     },
     mixins: [itemListenerMixin, backTopMixin],
@@ -132,6 +135,9 @@
       this.$bus.$off('itemImageLoad', this.itemImgListener)
     },
     methods: {
+      ...mapActions({
+        add: ADD_CART
+      }),
       goodsInfoLoad() {
         // this.refresh()
         // 图片加载完成，刷新一次
@@ -164,6 +170,24 @@
             this.$refs.navBar.setCurrentIndex(this.currentIndex)
           }
         }
+      },
+
+      addToCart() {
+        // 获取购物车需要展示的东西
+        const product = {}
+        product.image = this.topImages[0]
+        product.title = this.goods.title
+        product.desc = this.goods.desc
+        product.price = this.goods.realPrice
+        product.iid = this.iid
+        product.count = 1
+
+        // this.$store.dispatch(ADD_CART, product).then(res => {
+        //   console.log(res);
+        // })
+        this.add(product).then(res => {
+          this.$toast.show()
+        })
       }
     },
   }
